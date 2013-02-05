@@ -1,4 +1,4 @@
 PHP Learning Experience
 =======================
 
-Weird stuff I wondered.
+Weird stuff I ever wondered.
