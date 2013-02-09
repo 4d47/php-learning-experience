@@ -2,11 +2,23 @@
 
 class TypeJugglingTest extends PHPUnit_Framework_TestCase
 {
-    public function testFromFalseToArray()
+    public function testFromFalseOrNullToArray()
+    {
+        foreach (array(false, null) as $testValue) {
+            $var = $testValue;
+            $var['foo'] = 10;
+            $this->assertEquals('array', gettype($var));
+        }
+    }
+
+    /**
+     * @expectedException PHPUnit_Framework_Error_Warning
+     * @expectedExceptionMessage Creating default object from empty value
+     */
+    public function testFromFalseToObject()
     {
         $var = false;
-        $var['foo'] = 10;
-        $this->assertEquals('array', gettype($var));
+        $var->name = 'bob';
     }
 
     /**
