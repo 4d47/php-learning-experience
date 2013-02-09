@@ -37,7 +37,10 @@ class TypeJugglingTest extends PHPUnit_Framework_TestCase
      */
     public function testFromStringToArray()
     {
-        $this->markTestSkipped('This crash my PHP cli');
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $this->markTestSkipped('This crash my PHP cli');
+            return;
+        }
         $var = '2.5';
         $var['foo'] = 10;
     }
