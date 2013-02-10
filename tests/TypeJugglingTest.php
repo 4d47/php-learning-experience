@@ -12,7 +12,7 @@ class TypeJugglingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PHPUnit_Framework_Error_Warning
+     * @expectedException PHPUnit_Framework_Error
      * @expectedExceptionMessage Creating default object from empty value
      */
     public function testFromFalseToObject()
