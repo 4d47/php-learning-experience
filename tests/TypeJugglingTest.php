@@ -11,12 +11,12 @@ class TypeJugglingTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @expectedException PHPUnit_Framework_Error
-     * @expectedExceptionMessage Creating default object from empty value
-     */
     public function testFromFalseToObject()
     {
+        if (version_compare(PHP_VERSION, '5.3', '>='))
+            $this->setExpectedException('PHPUnit_Framework_Error_Notice');
+        if (version_compare(PHP_VERSION, '5.4', '>='))
+            $this->setExpectedException('PHPUnit_Framework_Error_Warning');
         $var = false;
         $var->name = 'bob';
     }
