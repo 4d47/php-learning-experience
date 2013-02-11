@@ -7,7 +7,19 @@ class ForEachTest extends PHPUnit_Framework_TestCase
      */
     public function testNull()
     {
-        $var = null;
-        foreach ($val as $value) ;
+        foreach (null as $value) ;
+    }
+
+    public function testStdClass()
+    {
+        $var = new stdClass();
+        $var->a = 'a';
+        $var->b = 'b';
+        $result = '';
+        foreach ($var as $key => $value) {
+            $result .= "$key$value";
+        }
+        $this->assertEquals('aabb', $result);
+        $this->assertFalse($var instanceof Traversable);
     }
 }
