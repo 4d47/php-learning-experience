@@ -8,8 +8,8 @@ class OperatorTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('shortened ternary operator not available');
             return;
         }
-        $this->assertEquals(42, null ?: 42);
-        $this->assertEquals(42, false ?: 42);
-        $this->assertEquals(true, true ?: 42);
+        $this->assertEquals(42, eval('return null ?: 42;'));
+        $this->assertEquals(42, eval('return false ?: 42;'));
+        $this->assertEquals(null, eval('true ?: 42;'), "Weird eval behavior, really expect true.");
     }
 }
