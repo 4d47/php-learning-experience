@@ -11,6 +11,12 @@ class TypeJugglingTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    public function testFromNullToObject()
+    {
+        $var = (object) null;
+        $this->assertEquals('object', gettype($var));
+    }
+
     public function testFromFalseToObject()
     {
         if (version_compare(PHP_VERSION, '5.3', '>='))
