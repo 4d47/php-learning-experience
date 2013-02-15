@@ -10,6 +10,6 @@ class OperatorTest extends PHPUnit_Framework_TestCase
         }
         $this->assertEquals(42, eval('return null ?: 42;'));
         $this->assertEquals(42, eval('return false ?: 42;'));
-        $this->assertEquals(null, eval('true ?: 42;'), "Weird eval behavior, really expect true.");
+        $this->assertEquals(true, eval('return true ?: 42;'));
     }
 }
