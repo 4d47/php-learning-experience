@@ -12,4 +12,11 @@ class OperatorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(42, eval('return false ?: 42;'));
         $this->assertEquals(true, eval('return true ?: 42;'));
     }
+
+    public function testComparingNull()
+    {
+        $this->assertTrue(null == 0);
+        $this->assertTrue(null < 1);
+        $this->assertFalse(null > -1);
+    }
 }
