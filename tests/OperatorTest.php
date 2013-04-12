@@ -19,4 +19,9 @@ class OperatorTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(null < 1);
         $this->assertFalse(null > -1);
     }
+
+    public function testStriclyEqual()
+    {
+        $this->assertTrue(false !== 0);
+    }
 }
