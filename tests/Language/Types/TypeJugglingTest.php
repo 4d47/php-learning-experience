@@ -1,17 +1,15 @@
 <?php
 
-class TypeJugglingTest extends PHPUnit_Framework_TestCase
+class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
 {
-    public function testFromFalseOrNullToArray()
+    public function testFalseToArray()
     {
-        foreach (array(false, null) as $testValue) {
-            $var = $testValue;
-            $var['foo'] = 10;
-            $this->assertEquals('array', gettype($var));
-        }
+        $var = false;
+        $var['foo'] = 10;
+        $this->assertInternalType('array', $var);
     }
 
-    public function testFromFalseToObject()
+    public function testFalseToObject()
     {
         if (version_compare(PHP_VERSION, '5.3', '>='))
             $this->setExpectedException('PHPUnit_Framework_Error_Notice');
@@ -21,25 +19,37 @@ class TypeJugglingTest extends PHPUnit_Framework_TestCase
         $var->name = 'bob';
     }
 
+    public function testNullToArray()
+    {
+        $var = null;
+        $var['foo'] = 10;
+        $this->assertInternalType('array', $var);
+    }
+
     /**
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Cannot use a scalar value as an array
      */
-    public function testFromTrueToArray()
+    public function testTrueToArray()
     {
         $var = true;
         $var['foo'] = 10;
-        $this->assertEquals('array', gettype($var));
+        $this->assertInternalType('array', $var);
     }
 
     /**
      * @expectedException PHPUnit_Framework_Error_Warning
      */
-    public function testFromStringToArray()
+    public function testStringToArray()
     {
         $this->markTestSkipped('This crash my (and Travis) PHP cli');
         // ... but PHP 5.4.6 on Ubuntu and PHPUnit 3.6.10 is ok, mmm
         $var = '2.5';
         $var['foo'] = 10;
+    }
+
+    public function testNullToString()
+    {
+        $this->assertEquals('', (string) null);
     }
 }

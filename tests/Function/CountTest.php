@@ -1,6 +1,6 @@
 <?php
 
-class CountTest extends PHPUnit_Framework_TestCase
+class Function_CountTest extends PHPUnit_Framework_TestCase
 {
     public function testCountScalar()
     {

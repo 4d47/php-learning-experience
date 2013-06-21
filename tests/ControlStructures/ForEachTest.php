@@ -1,6 +1,6 @@
 <?php
 
-class ForEachTest extends PHPUnit_Framework_TestCase
+class ControlStructures_ForEachTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @expectedException PHPUnit_Framework_Error
