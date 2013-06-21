@@ -1,6 +1,6 @@
 <?php
 
-class FunctionTest extends PHPUnit_Framework_TestCase
+class Language_FunctionsTest extends PHPUnit_Framework_TestCase
 {
     public function testReturnVoid()
     {

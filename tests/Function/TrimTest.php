@@ -1,6 +1,6 @@
 <?php
 
-class TrimTest extends PHPUnit_Framework_TestCase
+class Function_TrimTest extends PHPUnit_Framework_TestCase
 {
     public function testTrim()
     {

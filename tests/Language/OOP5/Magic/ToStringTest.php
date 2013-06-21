@@ -1,6 +1,6 @@
 <?php
 
-class ToStringTest extends PHPUnit_Framework_TestCase
+class Language_OOP5_Magic_ToStringTest extends PHPUnit_Framework_TestCase
 {
     public function testStringInterpolation()
     {

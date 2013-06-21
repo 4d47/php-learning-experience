@@ -1,6 +1,6 @@
 <?php
 
-class PregMatchTest extends PHPUnit_Framework_TestCase
+class Function_PregMatchTest extends PHPUnit_Framework_TestCase
 {
     public function testPregMatchWordBoudaries()
     {
