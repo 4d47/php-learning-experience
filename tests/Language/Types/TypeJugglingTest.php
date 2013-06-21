@@ -19,11 +19,22 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
         $var->name = 'bob';
     }
 
+    public function testNullToObject()
+    {
+        $var = (object) null;
+        $this->assertEquals('object', gettype($var));
+    }
+
     public function testNullToArray()
     {
         $var = null;
         $var['foo'] = 10;
         $this->assertInternalType('array', $var);
+    }
+
+    public function testNullToString()
+    {
+        $this->assertEquals('', (string) null);
     }
 
     /**
@@ -46,10 +57,5 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
         // ... but PHP 5.4.6 on Ubuntu and PHPUnit 3.6.10 is ok, mmm
         $var = '2.5';
         $var['foo'] = 10;
-    }
-
-    public function testNullToString()
-    {
-        $this->assertEquals('', (string) null);
     }
 }
