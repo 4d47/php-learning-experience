@@ -24,4 +24,10 @@ class Language_OperatorsTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(false !== 0);
     }
+
+    public function testAddingArray()
+    {
+        $this->assertEquals(array(1, 2), array(1, 2) + array(3));
+        $this->assertEquals(array(3, 2), array(3) + array(1, 2));
+    }
 }
