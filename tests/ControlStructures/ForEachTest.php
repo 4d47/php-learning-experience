@@ -19,7 +19,7 @@ class ControlStructures_ForEachTest extends PHPUnit_Framework_TestCase
         foreach ($var as $key => $value) {
             $result .= "$key$value";
         }
-        $this->assertEquals('aabb', $result);
-        $this->assertFalse($var instanceof Traversable);
+        $this->assertSame('aabb', $result);
+        $this->assertNotInstanceOf('Traversable', $var);
     }
 }

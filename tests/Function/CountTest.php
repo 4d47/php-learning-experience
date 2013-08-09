@@ -2,13 +2,15 @@
 
 class Function_CountTest extends PHPUnit_Framework_TestCase
 {
-    public function testCountScalar()
+    public function testScalars()
     {
-        $this->assertEquals(0, count(null));
-        $this->assertEquals(1, count(0));
-        $this->assertEquals(1, count(1));
-        $this->assertEquals(1, count(false));
-        $this->assertEquals(1, count(true));
-        $this->assertEquals(1, count('foo'));
+        $this->assertSame(0, count(null));
+        $this->assertSame(1, count(0));
+        $this->assertSame(1, count(1));
+        $this->assertSame(1, count(2.0));
+        $this->assertSame(1, count(false));
+        $this->assertSame(1, count(true));
+        $this->assertSame(1, count('foo'));
+        $this->assertSame(1, count(''));
     }
 }

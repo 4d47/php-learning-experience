@@ -2,10 +2,19 @@
 
 class Function_TrimTest extends PHPUnit_Framework_TestCase
 {
-    public function testTrim()
+    public function testNull()
     {
-        $this->assertEquals(null, trim(null));
-        $this->assertEquals(null, trim(null, 'a'));
-        $this->assertEquals('', trim(''));
+        $this->assertSame('', trim(null));
+        $this->assertSame('', trim(null, 'a'));
+    }
+
+    public function testEmptyString()
+    {
+        $this->assertSame('', trim(''));
+    }
+
+    public function testNumber()
+    {
+        $this->assertSame('12', trim(12));
     }
 }

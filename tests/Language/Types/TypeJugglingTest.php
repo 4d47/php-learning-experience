@@ -22,7 +22,7 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
     public function testNullToObject()
     {
         $var = (object) null;
-        $this->assertEquals('object', gettype($var));
+        $this->assertInternalType('object', $var);
     }
 
     public function testNullToArray()
@@ -34,7 +34,7 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
 
     public function testNullToString()
     {
-        $this->assertEquals('', (string) null);
+        $this->assertSame('', (string) null);
     }
 
     /**

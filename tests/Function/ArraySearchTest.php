@@ -2,7 +2,7 @@
 
 class Function_ArraySearchTest extends PHPUnit_Framework_TestCase
 {
-    public function testSearchNull()
+    public function testNull()
     {
         $this->setExpectedException('PHPUnit_Framework_Error',
             version_compare(PHP_VERSION, '5.3', '>=')

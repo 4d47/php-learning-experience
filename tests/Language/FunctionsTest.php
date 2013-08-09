@@ -2,9 +2,9 @@
 
 class Language_FunctionsTest extends PHPUnit_Framework_TestCase
 {
-    public function testReturnVoid()
+    public function testNoReturn()
     {
-        $this->assertNull($this->returnNothing());
+        $this->assertNull($this->returnVoid(), 'If the return is omitted the value NULL will be returned.');
     }
 
     public function testCallObjectCallback()
@@ -12,10 +12,10 @@ class Language_FunctionsTest extends PHPUnit_Framework_TestCase
         if (version_compare(PHP_VERSION, '5.4', '<'))
             $this->markTestSkipped('Fatal Error');
         $ten = array($this,  'return10');
-        $this->assertEquals(10, $ten());
+        $this->assertSame(10, $ten());
     }
 
-    private function returnNothing()
+    private function returnVoid()
     {
         ;
     }
