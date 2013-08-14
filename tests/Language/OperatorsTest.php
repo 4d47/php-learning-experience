@@ -30,4 +30,10 @@ class Language_OperatorsTest extends PHPUnit_Framework_TestCase
         $this->assertSame(array(1, 2), array(1, 2) + array(3));
         $this->assertSame(array(3, 2), array(3) + array(1, 2));
     }
+
+    public function testInstanceOf()
+    {
+        $var = null;
+        $this->assertFalse($var instanceof Language_OperatorsTest);
+    }
 }
