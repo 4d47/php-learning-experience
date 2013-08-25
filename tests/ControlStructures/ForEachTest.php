@@ -10,6 +10,14 @@ class ControlStructures_ForEachTest extends PHPUnit_Framework_TestCase
         foreach (null as $value) ;
     }
 
+    /**
+     * @expectedException PHPUnit_Framework_Error
+     */
+    public function testFalse()
+    {
+        foreach (false as $value) ;
+    }
+
     public function testStdClass()
     {
         $var = new stdClass();
