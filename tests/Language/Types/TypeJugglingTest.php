@@ -58,4 +58,15 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
         $var = '2.5';
         $var['foo'] = 10;
     }
+
+    public function testCastStringToArray()
+    {
+        $this->assertSame(array("foo"), (array) "foo");
+    }
+
+    public function testCastArrayToArray()
+    {
+        $data = array("foo");
+        $this->assertSame($data, (array) $data);
+    }
 }
