@@ -69,4 +69,18 @@ class Language_Types_TypeJugglingTest extends PHPUnit_Framework_TestCase
         $data = array("foo");
         $this->assertSame($data, (array) $data);
     }
+
+    public function testCastBooleanToObject()
+    {
+        $expected = new stdClass();
+        $expected->scalar = false; // expect weird shit
+        $this->assertEquals($expected, (object) false);
+        $expected->scalar = true;
+        $this->assertEquals($expected, (object) true);
+    }
+
+    public function testCastNullToObject()
+    {
+        $this->assertEquals(new stdClass(), (object) null);
+    }
 }
