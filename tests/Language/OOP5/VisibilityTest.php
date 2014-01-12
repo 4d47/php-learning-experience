@@ -1,6 +1,6 @@
 <?php
 
-class Language_VisibilityTest extends PHPUnit_Framework_TestCase
+class Language_OOP5_VisibilityTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -9,7 +9,7 @@ class Language_VisibilityTest extends PHPUnit_Framework_TestCase
 
     public function testIncreasing()
     {
-        $this->assertEquals(12, $this->b->foo);
+        $this->assertSame(12, $this->b->foo);
     }
 }
 
